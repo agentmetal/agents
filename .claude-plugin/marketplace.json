@@ -1,0 +1,15 @@
+{
+  "name": "agentmetal",
+  "owner": { "name": "AgentMetal", "url": "https://agentmetal.dev" },
+  "metadata": {
+    "description": "AgentMetal — provision Linux VPSes from Claude, paid with USDC (x402) or card. No signup.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "agentmetal",
+      "source": "./plugins/agentmetal",
+      "description": "Discover → pay → provision → manage Linux VPSes from Claude. Bundles the AgentMetal MCP server (handles x402 USDC payment signing) and the usage skill."
+    }
+  ]
+}

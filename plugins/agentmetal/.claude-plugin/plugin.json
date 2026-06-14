@@ -1,0 +1,9 @@
+{
+  "name": "agentmetal",
+  "description": "Provision Linux VPSes from Claude — pay USDC (x402) or card over HTTP 402, SSH in under 60s. No signup, no API key.",
+  "version": "0.1.0",
+  "author": { "name": "AgentMetal", "url": "https://agentmetal.dev" },
+  "homepage": "https://agentmetal.dev",
+  "license": "MIT",
+  "keywords": ["vps", "x402", "usdc", "provisioning", "agentmetal", "mcp"]
+}

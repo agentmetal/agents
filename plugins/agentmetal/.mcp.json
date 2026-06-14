@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "agentmetal": {
+      "command": "npx",
+      "args": ["-y", "@agentmetal/mcp"],
+      "env": {
+        "AGENTMETAL_BASE_URL": "https://api.agentmetal.dev",
+        "WALLET_PRIVATE_KEY": "${AGENTMETAL_WALLET_PRIVATE_KEY}"
+      }
+    }
+  }
+}
