@@ -2,14 +2,14 @@
   "name": "agentmetal",
   "owner": { "name": "AgentMetal", "url": "https://agentmetal.dev" },
   "metadata": {
-    "description": "AgentMetal — provision Linux VPSes from Claude, paid with USDC (x402) or card. No signup.",
-    "version": "0.1.0"
+    "description": "AgentMetal — spin up, SSH into, and run commands on your own Linux VPSes from Claude, paid with USDC (x402) or card. Browse free, provision, exec as root, add storage, manage, extend, destroy. No signup.",
+    "version": "0.2.0"
   },
   "plugins": [
     {
       "name": "agentmetal",
       "source": "./plugins/agentmetal",
-      "description": "Discover → pay → provision → manage Linux VPSes from Claude. Bundles the AgentMetal MCP server (handles x402 USDC payment signing) and the usage skill."
+      "description": "Browse → pay → provision → SSH in → run commands → manage → extend → destroy Linux VPSes from Claude. Bundles the AgentMetal MCP server (11 tools; handles x402 USDC payment signing) and the usage skill. Autonomous infrastructure: the agent buys its own compute and operates the box — no signup, no API key to buy."
     }
   ]
 }

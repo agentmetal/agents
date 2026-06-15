@@ -1,7 +1,7 @@
 {
   "name": "agentmetal",
-  "description": "Provision Linux VPSes from Claude — pay USDC (x402) or card over HTTP 402, SSH in under 60s. No signup, no API key.",
-  "version": "0.1.0",
+  "description": "Spin up, SSH into, run commands on, and manage Linux VPSes from Claude — pay USDC (x402) or card over HTTP 402, running box in under 60s. Browse free, provision, exec as root, add storage, reboot, pull diagnostics, extend, destroy. No signup, no API key to buy.",
+  "version": "0.2.0",
   "author": { "name": "AgentMetal", "url": "https://agentmetal.dev" },
   "homepage": "https://agentmetal.dev",
   "license": "MIT",
