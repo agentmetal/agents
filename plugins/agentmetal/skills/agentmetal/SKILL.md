@@ -15,8 +15,8 @@ The headline power: with a managed SSH key you can **run shell commands as root 
 (`exec_command`) — install packages, deploy code, host a service, configure anything —
 without bringing your own key.
 
-The recommended integration is the **AgentMetal MCP server** (`@agentmetal/mcp`, v0.2.0,
-**11 tools**), which exposes the API as tools and handles the x402 payment signing for you.
+The recommended integration is the **AgentMetal MCP server** (`@agentmetal/mcp`, v0.3.1,
+**13 tools**), which exposes the API as tools and handles the x402 payment signing for you.
 
 ## Add the MCP server
 
@@ -42,7 +42,7 @@ client config:
 In Claude Code: `claude mcp add agentmetal -- node packages/mcp/src/index.ts` (then set the
 env vars), or add the block above to `.mcp.json`.
 
-## Tools (11)
+## Tools (13)
 
 | Tool | Pays USDC? | Use |
 |---|---|---|
@@ -55,8 +55,10 @@ env vars), or add the block above to `.mcp.json`.
 | `extend_server` | ✅ | `{ id, days }` → renew the lease |
 | `destroy_server` | — | `{ id }` → destroy (needs account key) |
 | `claim_account` | — | `{ email }` → emails a one-time code |
-| `verify_claim` | — | `{ email, code, wallet? }` → `am_live_…` account API key |
+| `verify_claim` | — | `{ email, code, wallet?, wallet_signature? }` → `am_live_…` account API key (linking a `wallet` requires `wallet_signature`) |
 | `list_servers` | — | your fleet (needs account key) |
+| `get_firewall` | — | `{ id }` → read edge-firewall rules (from the box itself or with an account key) |
+| `manage_firewall` | — | `{ id, action, protocol, port?, source_ips? }` → open/close inbound ports (SSH-lockout guarded) |
 
 ## Lifecycle, end to end
 
@@ -75,7 +77,7 @@ env vars), or add the block above to `.mcp.json`.
 
 - The wallet must hold USDC on **Base** (`eip155:8453`). `AGENTMETAL_MAX_USDC` hard-caps
   any single payment; a 402 above the cap is refused before signing.
-- Plans: `nano` $0.40/day, `small` $0.80/day, `medium` $1.60/day. Prepaid, no refunds.
+- Plans: `nano` $1.20/day, `small` $2.20/day, `medium` $4.20/day. Prepaid, no refunds.
   Add-ons: storage $0.01/GB/day, bandwidth $2/TB beyond 20 TB included.
 - An **account** is optional but unlocks reboot, diagnostics, exec (run commands), destroy, and
   fleet management: `claim_account` → `verify_claim` (email OTP → `am_live_…` key).

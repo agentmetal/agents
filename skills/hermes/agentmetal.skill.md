@@ -19,9 +19,9 @@ lifecycle: **browse → provision → SSH in / run commands → add storage → 
 
 | plan | vCPU / RAM | USDC/day |
 |------|-----------|----------|
-| `nano`   | 2 / 2 GB | $0.40 |
-| `small`  | 3 / 4 GB | $0.80 |
-| `medium` | 4 / 8 GB | $1.60 |
+| `nano`   | 2 / 2 GB | $1.20 |
+| `small`  | 3 / 4 GB | $2.20 |
+| `medium` | 4 / 8 GB | $4.20 |
 
 Prepaid, 1–30 days, no refunds. **Add-ons:** block storage $0.01/GB/day (auto-mounted),
 bandwidth $2/TB beyond the 20 TB included.
@@ -92,7 +92,7 @@ reboot, pull diagnostics, destroy**, manage a fleet, and unlock monthly card bil
 ## Pointers
 
 - Agent manual (every endpoint, the 402 flow, copy-paste curl): `https://api.agentmetal.dev/llms.txt`
-- Prefer a programmatic integration? Use the `@agentmetal/mcp` MCP server (v0.2.0, 11 tools:
+- Prefer a programmatic integration? Use the `@agentmetal/mcp` MCP server (v0.3.1, 13 tools:
   `get_catalog`, `provision_server`, `get_server`, `exec_command`, `reboot_server`,
   `server_logs`, `extend_server`, `destroy_server`, `claim_account`, `verify_claim`,
   `list_servers`) — it holds the wallet and does the 402 signing.
