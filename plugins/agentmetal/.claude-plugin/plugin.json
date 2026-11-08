@@ -1,10 +1,20 @@
 {
   "name": "agentmetal",
   "displayName": "AgentMetal",
-  "description": "Spin up, SSH into, run commands on, and manage Linux VPSes from Claude — pay USDC (x402) or card over HTTP 402, running box in under 60s. Browse free, provision, exec as root, add storage, reboot, pull diagnostics, extend, destroy. No signup, no API key to buy.",
-  "version": "0.2.1",
-  "author": { "name": "AgentMetal", "url": "https://agentmetal.dev" },
+  "description": "Cloud servers for Claude: price, buy, SSH into, run commands on and manage Linux VPSes, paid with USDC (x402) or a credit card. Running in under 60s, in Ashburn, Hillsboro or Mexico City. No signup.",
+  "version": "0.3.5",
+  "author": {
+    "name": "AgentMetal",
+    "url": "https://agentmetal.dev"
+  },
   "homepage": "https://agentmetal.dev",
   "license": "MIT",
-  "keywords": ["vps", "x402", "usdc", "provisioning", "agentmetal", "mcp"]
+  "keywords": [
+    "vps",
+    "x402",
+    "usdc",
+    "provisioning",
+    "agentmetal",
+    "mcp"
+  ]
 }
