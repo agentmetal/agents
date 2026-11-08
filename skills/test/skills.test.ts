@@ -35,3 +35,15 @@ test('claude skill points at the MCP server', () => {
   assert.match(s, /mcp/i);
   assert.ok(s.includes('@agentmetal/mcp') || s.includes('agentmetal-mcp'), 'names the MCP package/binary');
 });
+
+// The setup block is what an agent copies. A path that only exists in our checkout
+// (`node packages/mcp/src/index.ts`) fails for everyone else, which is the bug that shipped.
+test('claude skill and plugin skill install from npm and stay identical', () => {
+  const skill = read('claude/SKILL.md');
+  const plugin = read('../plugins/agentmetal/skills/agentmetal/SKILL.md');
+  for (const [name, s] of [['skills/claude', skill], ['plugin', plugin]] as const) {
+    assert.ok(!s.includes('packages/mcp/src'), `${name} SKILL.md points at a repo-only path`);
+    assert.ok(s.includes('npx -y @agentmetal/mcp') || s.includes('"-y", "@agentmetal/mcp"'), `${name} SKILL.md installs from npm`);
+  }
+  assert.equal(plugin, skill, 'plugins/agentmetal/skills/agentmetal/SKILL.md drifted from skills/claude/SKILL.md');
+});

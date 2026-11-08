@@ -15,7 +15,7 @@ The headline power: with a managed SSH key you can **run shell commands as root 
 (`exec_command`) — install packages, deploy code, host a service, configure anything —
 without bringing your own key.
 
-The recommended integration is the **AgentMetal MCP server** (`@agentmetal/mcp`, v0.3.1,
+The recommended integration is the **AgentMetal MCP server** (`@agentmetal/mcp`,
 **13 tools**), which exposes the API as tools and handles the x402 payment signing for you.
 
 ## Add the MCP server
@@ -27,8 +27,8 @@ client config:
 {
   "mcpServers": {
     "agentmetal": {
-      "command": "node",
-      "args": ["packages/mcp/src/index.ts"],   // or: "npx", ["-y", "@agentmetal/mcp"]
+      "command": "npx",
+      "args": ["-y", "@agentmetal/mcp"],
       "env": {
         "WALLET_PRIVATE_KEY": "0x…",            // EVM key with USDC on Base
         "AGENTMETAL_MAX_USDC": "50",            // per-request spend cap
@@ -39,8 +39,13 @@ client config:
 }
 ```
 
-In Claude Code: `claude mcp add agentmetal -- node packages/mcp/src/index.ts` (then set the
-env vars), or add the block above to `.mcp.json`.
+In Claude Code, the plugin sets this up for you:
+`claude plugin marketplace add agentmetal/agents` then `claude plugin install agentmetal@agentmetal`.
+Without the plugin: `claude mcp add agentmetal -- npx -y @agentmetal/mcp` (then set the env vars),
+or add the block above to `.mcp.json`.
+
+Zones: pass `location` as `ash` (Ashburn), `hil` (Hillsboro) or `cdmx-1` (Mexico City); leave it
+out for ash, then hil. `get_catalog` lists what each zone offers.
 
 ## Tools (13)
 
